@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface SuperPersonRepository extends MongoRepository<SuperPerson, String> {
     Optional<SuperPerson> findPersonByName(String name);
-    Optional<SuperPerson> findPersonById(String id);
+    Optional<SuperPerson> findById(String id);
 }
