@@ -22,10 +22,6 @@ public class SuperPersonService {
         return superPersonRepository.findById(id);
     }
 
-    public Object findByName(String name){
-        return superPersonRepository.findPersonByName(name);
-    }
-
     public void deleteById(String id){
         superPersonRepository.deleteById(id);
     }

@@ -4,6 +4,7 @@ import com.example.SuperPeople.Enums.Aliance;
 import com.example.SuperPeople.Enums.Gender;
 import com.example.SuperPeople.Enums.Universe;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigInteger;
@@ -14,6 +15,8 @@ public class SuperPerson {
 
     @Id
     private String id;
+
+//    @Indexed(unique = true)
     private String name;
     private BigInteger powerLevel;
     private List<String> superPower;

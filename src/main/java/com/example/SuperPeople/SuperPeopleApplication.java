@@ -44,10 +44,15 @@ public class SuperPeopleApplication {
 			superPersonRepository.insert(superPerson);
 		};
 	}
+
 	private void usingMongoTemplateAndQuery(SuperPersonRepository superPersonRepository, MongoTemplate mongoTemplate, String name, SuperPerson superPerson){
 		Query query = new Query();
 		query.addCriteria(Criteria.where("name").is(name));
+
 		List<SuperPerson> superPeople = mongoTemplate.find(query, SuperPerson.class);
+		if(superPeople.size() > 1){
+			throw new IllegalStateException("Found too many heroes with name " + name);
+		}
 		if(superPeople.isEmpty()){
 			System.out.println("Adding Super person "+ superPerson);
 			superPersonRepository.insert(superPerson);
